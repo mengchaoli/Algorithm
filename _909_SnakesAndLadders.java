@@ -3,6 +3,8 @@ import java.util.Queue;
 
 public class _909_SnakesAndLadders {
 
+    //BFS
+
     public int snakesAndLadders(int[][] board) {
         int n = board.length;
         Queue<Integer> queue = new LinkedList<>();
