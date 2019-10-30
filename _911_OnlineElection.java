@@ -35,7 +35,7 @@ import java.util.Map;
 //For this problem, we take advantage of two hashmaps, the first one's key-value pair is: time-leader, as long as we get the time, we can get the leader at that time
 //And for the second hashmap, key-value pair is person-votes. For each time we got from times[i], we can get the person from persons[i],
 //and we can add one vote for that person at that time, and we can compare the vote to the previous leader's vote to see if the leader changes after this vote at this time
-//And we need to put the time and corresponding leader to the first hashmap.
+//And we need to put the time and corresponding leader to the first hashmap every time in the for loop.
 public class _911_OnlineElection {
 
     int[] times;
