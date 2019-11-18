@@ -90,7 +90,7 @@ public class _904_FruitIntoBaskets {
 
     //This solution uses two variables to represent the two fruits
 
-    public int totalFruit(int[] tree) {
+    public int totalFruit_2(int[] tree) {
         // track last two fruits seen
         int lastFruit = -1;
         int secondLastFruit = -1;
