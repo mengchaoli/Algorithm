@@ -7,7 +7,7 @@ public class _457_CircularArrayLoop {
         }
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == 0) {
-                continue;;
+                continue;
             }
             int j = i, k = getIdx(i, nums);
             while (nums[i] * nums[k] > 0 && nums[i] * nums[getIdx(k, nums)] > 0) {
