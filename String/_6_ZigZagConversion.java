@@ -22,7 +22,7 @@ public class _6_ZigZagConversion {
             }
         }
 
-        for (int i = 1; i < numRows; i++) {
+        for (i = 1; i < numRows; i++) {
             sb[0].append(sb[i]);
         }
 
