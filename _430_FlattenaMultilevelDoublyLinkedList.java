@@ -8,6 +8,12 @@ class Node {
 };
 */
 public class _430_FlattenaMultilevelDoublyLinkedList {
+    class Node {
+        public int val;
+        public Node prev;
+        public Node next;
+        public Node child;
+    };
     public Node flatten(Node head) {
         if (head == null)
             return null;
@@ -16,7 +22,7 @@ public class _430_FlattenaMultilevelDoublyLinkedList {
         while (p != null) {
             if (p.child == null) {
                 p = p.next;
-                continue;;
+                continue;
             }
 
             Node temp = p.child;
