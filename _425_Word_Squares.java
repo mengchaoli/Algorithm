@@ -30,8 +30,11 @@ public class _425_Word_Squares {
                         curr.children[c - 'a'] = new TreeNode(c);
                     }
 
+                    curr.children[c - 'a'].prefix.add(word);
                     curr = curr.children[c - 'a'];
                 }
+
+
             }
         }
 
