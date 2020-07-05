@@ -8,7 +8,6 @@ import java.util.Set;
 public class _403_FrogJump {
     public boolean canCross(int[] stones) {
         Map<Integer, Set<Integer>> map = new HashMap<>();
-
         map.put(stones[0], new HashSet<>());
         map.get(stones[0]).add(1);
 
@@ -24,13 +23,12 @@ public class _403_FrogJump {
                 }
 
                 Set<Integer> set = map.get(reach);
-
                 if (set != null) {
-                    map.get(reach).add(step);
+                    set.add(step);
                     if (step - 1 > 0) {
-                        map.get(reach).add(step - 1);
+                        set.add(step - 1);
                     }
-                    map.get(reach).add(step + 1);
+                    set.add(step + 1);
                 }
             }
         }
