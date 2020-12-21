@@ -56,6 +56,7 @@ public class _116_PopulatingNextRightPointersinEachNode {
             levelStart = levelStart.left;
         }
 
+
         return root;
 
     }
