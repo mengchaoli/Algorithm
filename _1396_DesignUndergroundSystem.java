@@ -4,8 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class _1396_DesignUndergroundSystem {
-    Map<String, Pair<Integer, Integer>> journeyData = new HashMap<>();
+
     Map<Integer, Pair<String, Integer>> checkinMap = new HashMap<>();
+    Map<String, Pair<Integer, Integer>> journeyData = new HashMap<>();
 
     public _1396_DesignUndergroundSystem() {
 
@@ -16,12 +17,15 @@ public class _1396_DesignUndergroundSystem {
     }
 
     public void checkOut(int id, String stationName, int t) {
-        Pair<String, Integer> startStationForId = checkinMap.get(id);
-        String startStation = startStationForId.getKey();
+        Pair<String, Integer> journeyForId = checkinMap.get(id);
+        String startStation = journeyForId.getKey();
+        int startTime = journeyForId.getValue();
+        int travelTime = t - startTime;
         String journey = generateJourney(startStation, stationName);
-        int travelTime = t - startStationForId.getValue();
-        int totalTravelTime = journeyData.getOrDefault(journey, new Pair<>(0, 0)).getKey() + travelTime;
-        int totalTravelNumber = journeyData.getOrDefault(journey, new Pair<>(0, 0)).getValue() + 1;
+
+        Pair<Integer, Integer> journeyDataForJourney = journeyData.getOrDefault(journey, new Pair<>(0, 0));
+        int totalTravelTime = journeyDataForJourney.getKey() + travelTime;
+        int totalTravelNumber = journeyDataForJourney.getValue() + 1;
 
         journeyData.put(journey, new Pair<>(totalTravelTime, totalTravelNumber));
 
@@ -30,13 +34,13 @@ public class _1396_DesignUndergroundSystem {
 
     public double getAverageTime(String startStation, String endStation) {
         String journey = generateJourney(startStation, endStation);
-        int time = journeyData.get(journey).getKey();
-        int number = journeyData.get(journey).getValue();
+        int totalTravelTime = journeyData.get(journey).getKey();
+        int totalTravelNumber = journeyData.get(journey).getValue();
 
-        return (double)time / (double)number;
+        return (double)totalTravelTime / (double)totalTravelNumber;
     }
 
-    private String generateJourney(String startStation, String endStation) {
-        return startStation + "-" + endStation;
+    private String generateJourney(String s, String e) {
+        return s + "-" + e;
     }
 }
