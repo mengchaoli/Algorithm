@@ -40,5 +40,6 @@ public class _767_ReorganizeString {
         }
 
         return String.valueOf(res);
+
     }
 }
