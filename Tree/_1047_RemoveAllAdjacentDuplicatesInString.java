@@ -20,7 +20,7 @@ public class _1047_RemoveAllAdjacentDuplicatesInString {
 
         for (int j = 0; j < S.length(); j++, i++) {
             res[i] = res[j];
-            if (i > 0 && res[i] == res[i - 1]) { // this means we found duplicate of 2 same characters
+            if (i > 0 && res[i] == res[i - 1]) { // this means we found duplicate of 2 same characters, similar to LC-1209, it's just count = 2 here.
                 i -= 2;
             }
         }
