@@ -7,11 +7,11 @@ public class _1283_FindtheSmallestDivisorGivenaThreshold {
         int left = 1, right = (int)1e6;
 
         while (left < right) {
-            int mid = left + (right - left) / 2;  // This is a good way to implement Math.ceil(), "ceil(x) = int(x + 0.9999), so I add a big float (m-1)/m"
+            int mid = left + (right - left) / 2;
             int sum = 0;
 
             for (int n : nums) {
-                sum += (n + mid - 1) / mid;
+                sum += (n + mid - 1) / mid; // This is a good way to implement Math.ceil(), "ceil(x) = int(x + 0.9999), so I add a big float (m-1)/m"
             }
 
             if (sum > threshold) {
