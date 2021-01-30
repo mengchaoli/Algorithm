@@ -30,4 +30,5 @@ public class _1472_DesignBrowserHistory {
 
         return inStack.peek();
     }
+
 }
