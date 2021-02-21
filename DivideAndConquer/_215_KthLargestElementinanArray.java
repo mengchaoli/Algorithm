@@ -4,7 +4,7 @@ import java.util.PriorityQueue;
 
 public class _215_KthLargestElementinanArray {
     // Solution 1: PriorityQueue
-    // Time: O(NlogN)
+    // Time: O(NlogK)
 //    public int findKthLargest(int[] nums, int k) {
 //        PriorityQueue<Integer> pq = new PriorityQueue<>();
 //        for (int num : nums) {
