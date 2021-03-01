@@ -21,11 +21,9 @@ public class _236_LowestCommonAncestorofaBinaryTree {
         if (right != null) {
             return right;
         }
+
         return null;
     }
-
-
-
 
     class TreeNode {
         int val;
