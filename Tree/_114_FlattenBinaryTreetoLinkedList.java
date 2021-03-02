@@ -58,4 +58,8 @@ public class _114_FlattenBinaryTreetoLinkedList {
         TreeNode right;
         TreeNode(int x) { val = x; }
     }
+
+    public static void main(String[] args) {
+
+    }
 }
