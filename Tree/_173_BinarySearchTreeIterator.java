@@ -66,34 +66,34 @@ public class _173_BinarySearchTreeIterator {
 //    }
 
     // Solution 3:
-    public _173_BinarySearchTreeIterator(TreeNode root) {
-        stack = new Stack<>();
-        while (root != null) {
-            stack.add(root);
-            root = root.left;
-        }
-    }
-
-    public boolean hasNext() {
-        return !stack.isEmpty();
-    }
-
-    public int next() {
-        TreeNode curr = stack.peek();
-        if (curr.right != null) {
-            TreeNode node = curr.right;
-            while (node != null) {
-                stack.push(node);
-                node = node.left;
-            }
-        } else {
-            TreeNode node = stack.pop();
-            while (!stack.isEmpty() && stack.peek().left != node) {
-                node = stack.pop();
-            }
-        }
-
-        return curr.val;
-    }
+//    public _173_BinarySearchTreeIterator(TreeNode root) {
+//        stack = new Stack<>();
+//        while (root != null) {
+//            stack.add(root);
+//            root = root.left;
+//        }
+//    }
+//
+//    public boolean hasNext() {
+//        return !stack.isEmpty();
+//    }
+//
+//    public int next() {
+//        TreeNode curr = stack.peek();
+//        if (curr.right != null) {
+//            TreeNode node = curr.right;
+//            while (node != null) {
+//                stack.push(node);
+//                node = node.left;
+//            }
+//        } else {
+//            TreeNode node = stack.pop();
+//            while (!stack.isEmpty() && stack.peek().left != node) {
+//                node = stack.pop();
+//            }
+//        }
+//
+//        return curr.val;
+//    }
 
 }
