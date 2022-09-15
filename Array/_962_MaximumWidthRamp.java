@@ -33,19 +33,43 @@ public class _962_MaximumWidthRamp {
 //    }
 
     // solution 2: Time: O(n)
-    public int maxWidthRamp(int[] nums) {
-        Stack<Integer> stack = new Stack<>();
+//    public int maxWidthRamp(int[] nums) {
+//        Stack<Integer> stack = new Stack<>();
+//
+//        for (int i = 0; i < nums.length; i++) {
+//            if (stack.isEmpty() || nums[stack.peek()] > nums[i]) {
+//                stack.push(i);
+//            }
+//        }
+//
+//        int res = 0;
+//        for (int i = nums.length - 1; i > res; i--) {
+//            while (!stack.isEmpty() && nums[i] >= nums[stack.peek()]) {
+//                res = Math.max(res, i - stack.pop());
+//            }
+//        }
+//
+//        return res;
+//    }
 
-        for (int i = 0; i < nums.length; i++) {
-            if (stack.isEmpty() || nums[stack.peek()] > nums[i]) {
-                stack.push(i);
-            }
+    // solution 3:
+    public int maxWidthRamp(int[] nums) {
+        int n = nums.length;
+        int[] maxR = new int[n];
+        maxR[n - 1] = nums[n - 1];
+
+        for (int i = n - 2; i >= 0; i--) {
+            maxR[i] = Math.max(nums[i], maxR[i + 1]);
         }
 
-        int res = 0;
-        for (int i = nums.length - 1; i > res; i--) {
-            while (!stack.isEmpty() && nums[i] >= nums[stack.peek()]) {
-                res = Math.max(res, i - stack.pop());
+        int i = 0, j = 0, res = 0;
+
+        while (i < n && j < n) {
+            if (nums[i] <= maxR[j]) {
+                res = Math.max(res, j - i);
+                j++;
+            } else {
+                i++;
             }
         }
 
