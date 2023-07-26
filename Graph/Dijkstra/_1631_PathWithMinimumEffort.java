@@ -1,6 +1,8 @@
 package Graph.Dijkstra;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.PriorityQueue;
 
 public class _1631_PathWithMinimumEffort {
@@ -48,7 +50,32 @@ public class _1631_PathWithMinimumEffort {
                 continue;
             }
 
-
+            for (int[] neighbor : adj(heights, currX, currY)) {
+                int nextX = neighbor[0], nextY = neighbor[1];
+                int effortToNext = Math.max(
+                        minEffortTo[currX][currY],
+                        Math.abs(heights[currX][currY] - heights[nextX][nextY])
+                );
+                if (minEffortTo[nextX][nextY] > effortToNext) {
+                    minEffortTo[nextX][nextY] = effortToNext;
+                    pq.offer(new State(nextX, nextY, effortToNext));
+                }
+            }
         }
+
+        return -1;
+    }
+
+    private List<int[]> adj(int[][] matrix, int x, int y) {
+        int[][] dirs = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+        List<int[]> neighbors = new LinkedList<>();
+
+        for (int[] dir : dirs) {
+            if (x + dir[0] >= 0 && x + dir[0] < matrix.length && y + dir[1] >= 0 && y + dir[1] < matrix[0].length) {
+                neighbors.add(new int[]{x + dir[0], y + dir[1]});
+            }
+        }
+
+        return neighbors;
     }
 }
